@@ -128,28 +128,26 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         
         
         
-       String insert_sql="insert into stores values(?,?,?)";
-		
-		int rows=jt.update(new PreparedStatementCreator() {
-			
-			@Override
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException
-			
-			{
-				PreparedStatement pst=con.prepareStatement(insert_sql);
-				
-				
-				pst.setString(1, "admins");
-				pst.setString(2,name);
-				pst.setBigDecimal(3, price);
-				
-				
-				return pst;
-			}
-
-			
-		});
-        
+		/*
+		 * String insert_sql="insert into stores values(?,?,?)";
+		 * 
+		 * int rows=jt.update(new PreparedStatementCreator() {
+		 * 
+		 * @Override public PreparedStatement createPreparedStatement(Connection con)
+		 * throws SQLException
+		 * 
+		 * { PreparedStatement pst=con.prepareStatement(insert_sql);
+		 * 
+		 * 
+		 * pst.setString(1, "admins"); pst.setString(2,name); pst.setBigDecimal(3,
+		 * price);
+		 * 
+		 * 
+		 * return pst; }
+		 * 
+		 * 
+		 * });
+		 */
         productRepository.save(products.keySet());
         productRepository.flush();
         
